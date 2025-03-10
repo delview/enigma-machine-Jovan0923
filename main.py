@@ -1,5 +1,24 @@
 import time
 # Greet user and explain what an enigma machine is and what cipher its using
+# Create function to encrypt message
+def encrypt_message(message):
+        encrypted_message = ""
+        for letter in message:
+            if letter in cipher:
+                encrypted_message += cipher[letter]
+            else:
+                encrypted_message += letter
+        return encrypted_message
+
+# Create function to decrypt message
+def decrypt_message(message):
+    decrypted_message = ""    
+    for letter in message:
+        if letter in cipher:
+            decrypted_message += cipher[letter]
+        else:
+            decrypted_message += letter
+    return decrypted_message
 print("Welcome to the Enigma Machine!")
 time.sleep(1)
 print("The Enigma Machine was a cipher machine used by the Germans during World War II.")
@@ -18,21 +37,27 @@ if choice == "e":
     print("this could take days.......")
     time.sleep(2)
     print("im kidding.......")
-# Create function to encrypt message
-def encrypt_message(message):
-        encrypted_message = ""
-        for letter in message:
-            if letter in cipher:
-                encrypted_message += cipher[letter]
-            else:
-                encrypted_message += letter
-        return encrypted_message
 # Call the encrypt_message function and print the result
-encrypted_message = encrypt_message(message)
-time.sleep(2)
-print("Encrypted message:", encrypted_message)
-# If they want to decrypt, ask for a message 
+    encrypted_message = encrypt_message(message)
+    time.sleep(2)
+    print("Encrypted message:", encrypted_message)
 
-# Create function to decrypt message
+# If they want to decrypt, ask for a message 
+elif choice == "d":
+    message = input("What message would you like to decrypt? ")
+    print("Decrypting message...")
+    time.sleep(2)
+    print("this could take days.......")
+    time.sleep(2)
+    print("im kidding.......")
+    
+    # Call the decrypt_message function and print the result
+    decrypted_message = decrypt_message(message)
+    time.sleep(2)
+    print("Decrypted message:", decrypted_message)
 
 # If they want to quit, say goodbye
+elif choice == "q":
+    print("Goodbye!")
+else:
+    print("Invalid choice. Please try again.")
